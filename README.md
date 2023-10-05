@@ -23,7 +23,8 @@ There are various ways to install this software:
   Windows and MacOS are
   [here](https://github.com/coq/platform/releases/tag/2023.03.0) and a Snap
   package for Linux is [here](https://snapcraft.io/coq-prover). The installers
-  offer various 'levels'; pick the 'IDE level'.
+  offer lots of packages; you only need `coq`, `coqide` and their dependencies
+  (the 'IDE level').
 - Install Coq and CoqIDE via your distribution's package manager. Make sure you
   get exactly version 8.17.1.
 - Other options are listed [here](https://coq.inria.fr/download).
