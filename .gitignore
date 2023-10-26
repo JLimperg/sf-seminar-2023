@@ -3,3 +3,6 @@
 **.vo
 **.vok
 **.vos
+**.coq-native/
+**Makefile.coq*
+**.ml*
