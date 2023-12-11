@@ -7,3 +7,6 @@
 **Makefile.coq*
 **.ml*
 **.lia.cache
+**.auctex-auto
+lecture-slides/**/build/
+**/missfont.log

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+latexmk -recorder -interaction=nonstopmode -xelatex -outdir=build writing.tex $@

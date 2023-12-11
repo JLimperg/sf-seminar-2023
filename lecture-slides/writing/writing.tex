@@ -1,0 +1,779 @@
+\documentclass[xetex]{beamer}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{csquotes}
+
+\setmainfont[Scale=MatchLowercase]{XITS}
+\setmathfont[Scale=MatchLowercase]{XITS Math}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\Large\textbullet}
+\setbeamertemplate{itemize subitem}{\Large\textbullet}
+\setbeamertemplate{itemize subsubitem}{\Large\textbullet}
+
+\setlength{\tabcolsep}{0.5em}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \tableofcontents[currentsection, subsectionstyle=show/show/hide, subsubsectionstyle=hide]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}
+    \tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/shaded/hide, subsubsectionstyle=hide/hide/hide]
+  \end{frame}
+}
+
+\newcommand{\bad}[1]{\textcolor{orange}{#1}}
+\newcommand{\good}[1]{\textcolor{blue}{#1}}
+
+\hypersetup{
+  colorlinks=true,
+  allcolors=.,
+  urlcolor=cyan
+}
+
+\begin{document}
+
+\title{Writing Your Chapter Summary}
+\author{Jannis Limperg\inst{1}}
+\institute{%
+  \inst{1} University of Munich (LMU), \href{mailto:jannis@limperg.de}{jannis@limperg.de}}
+\date{13th December 2023}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Formal Requirements}
+
+\begin{frame}
+  \frametitle{Formal Requirements}
+
+  \begin{center}
+    7000--14000 characters (ca.\ 3--5 pages), excluding references
+  \end{center}
+\end{frame}
+
+\section{Content}
+
+\begin{frame}
+  \frametitle{Goal of a Summary}
+
+  Officially: provide a shorter version of the chapter, discussing the chapter's main ideas.
+
+  \medskip
+  \pause
+
+  Inofficially: convince me that you have thoroughly understood the chapter.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Content of a Summary}
+
+  \begin{itemize}
+    \item main ideas from the chapter
+    \item examples
+    \item optionally: connections to other chapters or to popular topics from computer science
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Target Audience}
+
+  The target audience is your fellow students.
+
+  \medskip
+
+  They are familiar with
+  \begin{itemize}
+    \item chapters Basics, Induction, Lists, Poly, Tactics, Logic, IndProp
+    \item all chapters before yours for which we have a presentation (see Moodle)
+  \end{itemize}
+
+  \medskip
+
+  In particular, they know any Coq syntax and tactics introduced in these chapters.
+\end{frame}
+
+\section{Process}
+
+\begin{frame}
+  \frametitle{Process}
+
+  \begin{enumerate}[<+->]
+    \item fix a title and table of contents
+    \item first draft
+          \begin{itemize}
+            \item can be very rough
+            \item start from the top \emph{or} start with the main content
+          \end{itemize}
+    \item revise/refactor
+          \begin{itemize}
+            \item big changes: add or remove content, split a section, move a section, move content between sections
+            \item small changes: rewrite a sentence or paragraph, split/join sentences or paragraphs, change wording
+            \item most time spent here!
+          \end{itemize}
+    \item get feedback, revise again
+    \item treat this as an exercise for your BSc.\ thesis (and all your future emails, chats, technical docs, \dots)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Peer Feedback}
+
+  \begin{itemize}
+    \item in pairs: give feedback on each other's drafts
+    \item receiving and giving careful feedback teaches you a lot
+    \item thread on Zulip (TODO link) for pairing up
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teacher Feedback}
+
+  I offer to give feedback on parts of your drafts.
+
+  \medskip
+
+  \begin{itemize}
+    \item at most 1 page
+    \item reasonable time before deadline
+    \item draft should be somewhat polished
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Curse of Knowledge}
+
+  \begin{quote}
+    The main cause of incomprehensible prose is the difficulty of imagining what it's like for someone else not to know something that you know.
+
+    --- Steven Pinker, The Sense of Style
+  \end{quote}
+
+  \pause
+  \medskip
+
+  Symptoms:
+  \begin{itemize}
+    \item omitting important background information
+    \item not defining unfamiliar terms
+    \item jumping to conclusions
+    \item lack of examples, overly abstract prose
+    \item \dots
+  \end{itemize}
+\end{frame}
+
+\section{Structure}
+
+\subsection{Document Level}
+
+\begin{frame}
+  \frametitle{Document Level}
+
+  \begin{enumerate}
+    \item Titlepage
+    \item Table of Contents
+    \item Introduction (0.5--1 pages)
+    \item Background (0.5--1 pages, optional)
+    \item Main Idea 1
+    \item \dots
+    \item Main Idea $n$
+    \item Conclusion (0.5 pages)
+    \item Acknowledgements (1 paragraph, optional)
+    \item Bibliography (does not count towards character limit)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Titlepage}
+
+  Title, author, title of seminar.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Introduction}
+
+  Which problems does the chapter address? Short examples help immensely.
+
+  \medskip
+  \pause
+
+  Why are the problems important?
+
+  \medskip
+  \pause
+
+  Briefly: which solutions to these problem does the chapter present?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Background}
+
+  What background information is necessary for your audience to understand the main ideas?
+
+  \medskip
+  \pause
+
+  Do not include material that
+  \begin{itemize}
+    \item is not necessary to understand the main ideas
+    \item is better explained at the point where it is used
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Main Ideas}
+
+  Select the most important ideas from the chapter.
+
+  \medskip
+
+  For each idea, describe the problem and the solution in (more) detail.
+
+  \medskip
+
+  Give examples. Your own examples are worth much more than examples taken from the chapter.
+
+  \medskip
+
+  Optionally, draw connections to other chapters or problems from computer science.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusion}
+
+  Very briefly summarise the main ideas again.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Acknowledgements}
+
+  Briefly acknowledge everyone who substantially helped you.
+
+  \medskip
+
+  If you used AI tools, briefly describe how and for what.
+\end{frame}
+
+\subsection{Paragraph Level}
+
+\begin{frame}
+  \frametitle{Paragraph Topics}
+
+  Each paragraph should have one topic.
+
+  \medskip
+
+  The first few sentences of a paragraph announce the topic.
+  The remainder of the paragraph expands on the topic.
+
+  \medskip
+
+  The topic sentences alone should provide a decent outline of the section.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paragraph Topics: Example}
+
+  From Alexander Watson, Ring of Steel:
+
+  \medskip
+
+  \small
+  Austria-Hungary [\dots] had by contrast been self-sufficient in the major foodstuffs before 1914.
+  The fact that wartime deprivation was greater than in Germany [\dots] thus requires some explanation.
+  Three factors were responsible for negating the initial Habsburg advantage.
+  First, the foundations of the disaster were laid already in 1914, with the Russian invasion of Galicia and Bukovina.
+
+  [\dots]
+
+  Second, agriculture in the rest of the Empire suffered similar problems to those experienced by farmers in Germany [\dots].
+
+  [\dots]
+
+  Hungary's agriculture was less badly damaged [\dots].
+
+  [\dots]
+
+  The third factor [\dots] was the lack of solidarity between the two halves of the Empire.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Flow}
+
+  Each sentence in a paragraph should have a logical connection to the previous sentence.
+
+  \medskip
+  \pause
+
+  \bad{Bad:}
+
+  {
+    \small
+    There are a number of efficient sorting algorithms.
+    Recursion is easy to reason about, so merge sort is particularly straightforward to get right.
+  }
+
+  \medskip
+  \pause
+
+  \good{Better:}
+
+  {
+    \small
+    There are a number of efficient sorting algorithms.
+    Of these, merge sort is particularly straightforward to get right, since recursion is easy to reason about.
+  }
+\end{frame}
+
+\subsection{Sentence Level}
+
+\begin{frame}
+  \frametitle{Topic and Stress}
+
+  Start of a sentence: \emph{topic position}.
+  Announces the topic of the sentence; often connects to previous material.
+
+  \medskip
+
+  End of a sentence: \emph{stress position}.
+  Contains the most important new information.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Topic and Stress: Example}
+
+  From Alexander Watson, Ring of Steel:
+
+  \medskip
+
+  \small
+  Second, \underline{agriculture in the rest of the Empire} suffered similar problems to those experienced by farmers in Germany, not only making it impossible to replace Galician production, but actually resulting in an \textbf{even larger food deficit}.
+  There was \underline{the same shortage of animal and human labour}: the Habsburg army took 814,000 horses, about a fifth of all those in the country, \textbf{on mobilization}.
+  \textbf{Millions of men were conscripted}.
+  The \underline{dung and fertilizer} needed to regenerate the soil were also in \textbf{short supply}.
+  \underline{Statistics for food production} in the region that at the war's end became the Austrian Republic illustrate how severely war affected \textbf{even land untouched by military action} [\dots].
+\end{frame}
+
+\begin{frame}
+  \frametitle{Connections: Example}
+
+  {
+  \small
+  Second, agriculture in the rest of the Empire suffered \textbf{similar} problems to those experienced by farmers in Germany, not only making it impossible to replace Galician production, but actually resulting in an \textbf{even larger} food deficit.
+  There was \textbf{the same} shortage of animal and human labour: the Habsburg army took 814,000 horses, about a fifth of all those in the country, on mobilization.
+  Millions of men were conscripted.
+  The dung and fertilizer needed to regenerate the soil were \textbf{also} in short supply.
+  Statistics for food production in the region that at the war's end became the Austrian Republic illustrate how severely war affected even land untouched by military action [\dots].
+  }
+
+  \medskip
+
+  Other connectives: however, nonetheless, further, in contrast, \dots
+\end{frame}
+
+\subsubsection{Sentence Structure}
+
+\begin{frame}
+  \frametitle{Sentence Length}
+
+  Prefer short sentences.
+
+  \medskip
+
+  Use some longer sentences for variety.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sentence Structure}
+
+  Avoid long or nested dependent clauses (\emph{Nebensätze}).
+
+  \medskip
+  \pause
+
+  \bad{Bad:}
+
+  {
+    \small
+    The observation that Dijkstra’s algorithm might be implemented using a priority queue is of note to computer scientists because it represents a significant opportunity to improve performance.\footnote{Example from \href{https://docs.google.com/document/d/1_vBXbugoLjO171w3wovs3ugmRQI-O6EcSVFDBF7eUzE/edit}{Benjamin C. Pierce and Rajeev Alur, Writing and Speaking with Style}}
+  }
+
+  \medskip
+  \pause
+
+  \only<3>{%
+  \good{Better:}
+
+  {
+    \small
+    Dijkstra's algorithm might be implemented using a priority queue.
+    This is noteworthy to computer scientists because it represents a significant opportunity to improve performance.
+  }
+  }
+  \only<4>{%
+  \good{Even better:}
+
+  {
+    \small
+    Dijkstra's algorithm can be implemented with a priority queue.
+    This greatly improves its performance.
+  }
+  }
+\end{frame}
+
+\section{Style}
+
+\begin{frame}
+  \frametitle{Concision}
+
+  \begin{quote}
+    Omit needless words.
+
+    --- William Strunck Jr.
+  \end{quote}
+
+  \medskip
+  \pause
+
+  \bad{Bad:}
+
+  A moderate amount of repetition is fine.
+
+  \good{Better:}
+
+  Some repetition is fine.
+
+  \medskip
+  \pause
+
+  \bad{Bad:}
+
+  For a summary, it's fine if the reference list contains exactly one work.
+
+  \good{Better:}
+
+  The bibliography of a summary may well have only one entry.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Active and Passive}
+
+  Prefer the active voice over the passive voice.
+
+  \medskip
+  \pause
+
+  \bad{Bad:}
+
+  There is opposition among many voters to nuclear power plants based on \dots.
+
+  \medskip
+  \pause
+
+  \good{Better:}
+
+  Many voters oppose nuclear power plants based on \dots.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nominalisation}
+
+  Prefer verbs over nouns.
+  Humans like to read about people doing things.
+
+  \pause
+  \medskip
+
+  \bad{Bad:}
+
+  Premature optimisation diagnoses are difficult to get right.\footnote{Examples from Pierce/Alur.}
+
+  \medskip
+  \pause
+
+  \good{Better:}
+
+  It is difficult to diagnose premature optimisation.
+
+  \pause
+  \medskip
+
+  \bad{Bad:}
+
+  The design of the new roller coaster was more of a struggle for the engineers than had been their expectation.
+
+  \medskip
+  \pause
+
+  \good{Better:}
+
+  The engineers struggled more with the design of the new roller coaster than they had expected.
+\end{frame}
+
+\begin{frame}
+  \frametitle{First Person}
+
+  First person is fine.
+  \begin{itemize}
+    \item \emph{I} summarise
+    \item to \emph{my} knowledge
+  \end{itemize}
+
+  \medskip
+  \pause
+
+  If you use first person a lot, stop describing your journey and describe the chapter instead.
+\end{frame}
+
+\begin{frame}
+  \frametitle{First Person Plural}
+
+  First person plural is often used to refer collectively to the author and the reader.
+  \begin{itemize}
+    \item \emph{we} see
+    \item \emph{we} can conclude
+  \end{itemize}
+
+  \medskip
+  \pause
+
+  But only use this when it makes sense. \bad{Not:}
+  \begin{itemize}
+    \item in this paper, \emph{we} summarise
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Second Person}
+
+  Do not use second person, referring to the reader as \emph{you}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Formality}
+
+  Do not use contractions: isn't, would've.
+
+  \medskip
+
+  Do not use slang.
+
+  \medskip
+
+  Do not use big words because they sound more formal.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Parallelism}
+
+  Parallelism is \good{good}:
+
+  \medskip
+  \pause
+
+  You may let other people edit your drafts.
+
+  You may not let other people write parts of your text.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Repetition}
+
+  Some repetition is fine.
+  If you use different terms for the same thing, you may create not only variety but also confusion.
+
+  \medskip
+  \pause
+
+  \bad{Bad:}
+
+  {
+    \small
+    Merge sort is a sorting algorithm.
+    The procedure is implemented by recursion.
+    This means the technique requires certain compiler optimisations to become efficient.
+  }
+
+  \medskip
+  \pause
+
+  \good{Still bad but less confusing:}
+
+  {
+    \small
+    Merge sort is a sorting algorithm.
+    The algorithm is implemented by recursion.
+    This means the algorithm requires certain compiler optimisations to become efficient.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{These Are All Just Rules of Thumb}
+
+  Omitting too many words hurts clarity.
+  Some redundancy can help readers.
+
+  \medskip
+
+  Passive constructions can direct the reader's focus.
+
+  \medskip
+
+  Excessive repetition sounds strange.
+\end{frame}
+
+\section{Formatting}
+
+\begin{frame}
+  \frametitle{Use \LaTeX}
+
+  \begin{itemize}
+    \item takes care of mundane formatting (references, figures, code highlighting, \dots)
+    \item looks good out of the box
+    \item best-in-class mathematical typesetting
+    \item generates table of contents and bibliography
+    \item built-in citation management
+    \item easily versioned with Git
+    \item infinitely extensible (if you can stomach the programming language)
+    \item de facto standard in all mathematical sciences
+  \end{itemize}
+
+  \medskip
+
+  TCS provides a \href{https://www.tcs.ifi.lmu.de/lehre/bsc-master-arbeiten_de.html}{template for BSc and MSc theses} which you can adapt.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Title Case}
+
+  Headings Should Use the So-Called Title Case.
+
+  \medskip
+
+  Very roughly: capitalise every word except \enquote*{minor words}: of, and, the, etc.
+  Different style guides disagree on what exactly is a minor word.
+
+  \medskip
+
+  Use \url{titlecaseconverter.com}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Accessibility}
+
+  Do not convey information exclusively through colour.
+
+  \medskip
+
+  Write useful captions for graphical elements.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fonts, Margins, Citations, Etc.}
+
+  See slides by David Sabel (translated by Luca Maio) in the course repository.
+\end{frame}
+
+\section{Academic Integrity}
+
+\begin{frame}
+  \frametitle{Academic Integrity}
+
+  IFI guidelines (only in German for some reason):
+
+  \medskip
+
+  \url{www.medien.ifi.lmu.de/lehre/Plagiate-IfI.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Citations}
+
+  Cite every paper/document that introduces an idea which is not common knowledge and which is used in your work.
+
+  \medskip
+
+  Do not cite papers just to pad your bibliography.
+  The bibliography of a summary may well have only one entry.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quotes}
+
+  Always cite the source.
+
+  \medskip
+
+  For direct (word-for-word) quotes: use \enquote{quotation marks} or typeset them as block quotes.
+
+  \medskip
+
+  For indirect (paraphrased) quotes:
+  \begin{itemize}
+    \item Make it clear what part of the text is an indirect quote.
+    \item Cite the source once per indirect quote.
+    \item In a summary: okay to cite the summarised work only once.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Editing}
+
+  You may let other people edit your drafts.
+
+  \medskip
+
+  You may not let other people write parts of your text.
+
+  \medskip
+
+  Editors should be acknowledged.
+\end{frame}
+
+\begin{frame}
+  \frametitle{AI Tools (ChatGPT)}
+
+  \begin{itemize}
+    \item are allowed, but text must remain substantially yours
+    \item must describe how they were used in an acknowledgement
+    \item may be useful for first draft and to improve language
+    \item are prone to factual errors, imprecision, waffling
+  \end{itemize}
+\end{frame}
+
+\section{Additional Resources}
+
+\begin{frame}
+  \frametitle{Additional Resources}
+
+  \begin{itemize}
+    \item Benjamin Pierce and Rajeev Alur, \href{https://docs.google.com/document/d/1_vBXbugoLjO171w3wovs3ugmRQI-O6EcSVFDBF7eUzE/edit}{Writing and Speaking with Style}
+
+          Lecture notes for a writing course for computer scientists.
+          Covers many of the themes I've discussed in more detail.
+          Nice exercises.
+    \item Steven Pinker, The Sense of Style
+
+          Book about nonfiction writing.
+          Pierce and Alur's slides are partly based on this book, as are mine.
+
+    \item Joseph M.\ Williams and Joseph Bizup, Style: Lessons in Clarity and Grace
+
+          Another book about nonfiction writing.
+          Recommended by Pierce and Alur for its exercises.
+  \end{itemize}
+\end{frame}
+
+\end{document}
