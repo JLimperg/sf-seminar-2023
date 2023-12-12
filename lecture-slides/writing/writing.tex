@@ -18,14 +18,14 @@
 \AtBeginSection[]
 {
   \begin{frame}
-    \tableofcontents[currentsection, subsectionstyle=show/show/hide, subsubsectionstyle=hide]
+    \tableofcontents[currentsection, hideallsubsections]
   \end{frame}
 }
 
 \AtBeginSubsection[]
 {
   \begin{frame}
-    \tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/shaded/hide, subsubsectionstyle=hide/hide/hide]
+    \tableofcontents[sectionstyle=show/hide, subsectionstyle=show/shaded/hide, subsubsectionstyle=hide/hide/hide]
   \end{frame}
 }
 
@@ -40,7 +40,7 @@
 
 \begin{document}
 
-\title{Writing Your Chapter Summary}
+\title{Writing a Chapter Summary}
 \author{Jannis Limperg\inst{1}}
 \institute{%
   \inst{1} University of Munich (LMU), \href{mailto:jannis@limperg.de}{jannis@limperg.de}}
@@ -59,9 +59,12 @@
 \begin{frame}
   \frametitle{Formal Requirements}
 
-  \begin{center}
-    7000--14000 characters (ca.\ 3--5 pages), excluding references
-  \end{center}
+  7000--14000 characters (ca.\ 3--5 pages), excluding bibliography.
+
+  \medskip
+  \pause
+
+  German or English.
 \end{frame}
 
 \section{Content}
@@ -80,11 +83,17 @@
 \begin{frame}
   \frametitle{Content of a Summary}
 
-  \begin{itemize}
-    \item main ideas from the chapter
-    \item examples
-    \item optionally: connections to other chapters or to popular topics from computer science
-  \end{itemize}
+  Main ideas from the chapter.
+
+  \medskip
+  \pause
+
+  Examples, ideally novel.
+
+  \medskip
+  \pause
+
+  Optional: connections to other chapters or other topics from computer science.
 \end{frame}
 
 \begin{frame}
@@ -93,6 +102,7 @@
   The target audience is your fellow students.
 
   \medskip
+  \pause
 
   They are familiar with
   \begin{itemize}
@@ -131,11 +141,17 @@
 \begin{frame}
   \frametitle{Peer Feedback}
 
-  \begin{itemize}
-    \item in pairs: give feedback on each other's drafts
-    \item receiving and giving careful feedback teaches you a lot
-    \item thread on Zulip (TODO link) for pairing up
-  \end{itemize}
+  Pair up and give feedback on each other's drafts.
+
+  \medskip
+  \pause
+
+  Receiving and giving(!) careful feedback helps a lot.
+
+  \medskip
+  \pause
+
+  After the lecture, I'll make a thread on Zulip where you can pair up.
 \end{frame}
 
 \begin{frame}
@@ -144,7 +160,9 @@
   I offer to give feedback on parts of your drafts.
 
   \medskip
+  \pause
 
+  Limitations:
   \begin{itemize}
     \item at most 1 page
     \item reasonable time before deadline
@@ -165,7 +183,7 @@
   \medskip
 
   Symptoms:
-  \begin{itemize}
+  \begin{itemize}[<+->]
     \item omitting important background information
     \item not defining unfamiliar terms
     \item jumping to conclusions
@@ -238,14 +256,17 @@
   Select the most important ideas from the chapter.
 
   \medskip
+  \pause
 
   For each idea, describe the problem and the solution in (more) detail.
 
   \medskip
+  \pause
 
   Give examples. Your own examples are worth much more than examples taken from the chapter.
 
   \medskip
+  \pause
 
   Optionally, draw connections to other chapters or problems from computer science.
 \end{frame}
@@ -286,10 +307,6 @@
 \begin{frame}
   \frametitle{Paragraph Topics: Example}
 
-  From Alexander Watson, Ring of Steel:
-
-  \medskip
-
   \small
   Austria-Hungary [\dots] had by contrast been self-sufficient in the major foodstuffs before 1914.
   The fact that wartime deprivation was greater than in Germany [\dots] thus requires some explanation.
@@ -306,8 +323,10 @@
 
   [\dots]
 
-  The third factor [\dots] was the lack of solidarity between the two halves of the Empire.
+  The third factor [\dots] was the lack of solidarity between the two halves of the Empire.\footnote{Alexander Watson, Ring of Steel}
 \end{frame}
+
+\subsection{Sentence Level}
 
 \begin{frame}
   \frametitle{Flow}
@@ -322,7 +341,7 @@
   {
     \small
     There are a number of efficient sorting algorithms.
-    Recursion is easy to reason about, so merge sort is particularly straightforward to get right.
+    Recursion is easy to reason about, so merge sort is particularly straightforward to get right.\footnote{Example from \href{https://docs.google.com/document/d/1_vBXbugoLjO171w3wovs3ugmRQI-O6EcSVFDBF7eUzE/edit}{Benjamin C. Pierce and Rajeev Alur, Writing and Speaking with Style}}
   }
 
   \medskip
@@ -337,7 +356,6 @@
   }
 \end{frame}
 
-\subsection{Sentence Level}
 
 \begin{frame}
   \frametitle{Topic and Stress}
@@ -354,16 +372,12 @@
 \begin{frame}
   \frametitle{Topic and Stress: Example}
 
-  From Alexander Watson, Ring of Steel:
-
-  \medskip
-
   \small
   Second, \underline{agriculture in the rest of the Empire} suffered similar problems to those experienced by farmers in Germany, not only making it impossible to replace Galician production, but actually resulting in an \textbf{even larger food deficit}.
   There was \underline{the same shortage of animal and human labour}: the Habsburg army took 814,000 horses, about a fifth of all those in the country, \textbf{on mobilization}.
   \textbf{Millions of men were conscripted}.
   The \underline{dung and fertilizer} needed to regenerate the soil were also in \textbf{short supply}.
-  \underline{Statistics for food production} in the region that at the war's end became the Austrian Republic illustrate how severely war affected \textbf{even land untouched by military action} [\dots].
+  \underline{Statistics for food production} in the region that at the war's end became the Austrian Republic illustrate how severely war affected \textbf{even land untouched by military action} [\dots].\footnote{Alexander Watson, Ring of Steel}
 \end{frame}
 
 \begin{frame}
@@ -396,7 +410,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Sentence Structure}
+  \frametitle{Dependent Clauses}
 
   Avoid long or nested dependent clauses (\emph{Nebensätze}).
 
@@ -407,7 +421,7 @@
 
   {
     \small
-    The observation that Dijkstra’s algorithm might be implemented using a priority queue is of note to computer scientists because it represents a significant opportunity to improve performance.\footnote{Example from \href{https://docs.google.com/document/d/1_vBXbugoLjO171w3wovs3ugmRQI-O6EcSVFDBF7eUzE/edit}{Benjamin C. Pierce and Rajeev Alur, Writing and Speaking with Style}}
+    The observation that Dijkstra’s algorithm might be implemented using a priority queue is of note to computer scientists because it represents a significant opportunity to improve performance.\footnote{Example from Pierce and Alur.}
   }
 
   \medskip
@@ -477,14 +491,14 @@
 
   \bad{Bad:}
 
-  There is opposition among many voters to nuclear power plants based on \dots.
+  There is opposition among many voters to nuclear power plants based on X.\footnote{Example from Pierce and Alur.}
 
   \medskip
   \pause
 
   \good{Better:}
 
-  Many voters oppose nuclear power plants based on \dots.
+  Many voters oppose nuclear power plants based on X.
 \end{frame}
 
 \begin{frame}
@@ -498,7 +512,7 @@
 
   \bad{Bad:}
 
-  Premature optimisation diagnoses are difficult to get right.\footnote{Examples from Pierce/Alur.}
+  Premature optimisation diagnoses are difficult to get right.\footnote{Examples from Pierce and Alur.}
 
   \medskip
   \pause
@@ -549,7 +563,7 @@
   \medskip
   \pause
 
-  But only use this when it makes sense. \bad{Not:}
+  But only use this when it makes sense. Not:
   \begin{itemize}
     \item in this paper, \emph{we} summarise
   \end{itemize}
@@ -567,10 +581,12 @@
   Do not use contractions: isn't, would've.
 
   \medskip
+  \pause
 
   Do not use slang.
 
   \medskip
+  \pause
 
   Do not use big words because they sound more formal.
 \end{frame}
@@ -578,9 +594,9 @@
 \begin{frame}
   \frametitle{Parallelism}
 
-  Parallelism is \good{good}:
+  Parallelism is good:
 
-  \medskip
+  \bigskip
   \pause
 
   You may let other people edit your drafts.
@@ -592,7 +608,7 @@
   \frametitle{Repetition}
 
   Some repetition is fine.
-  If you use different terms for the same thing, you may create not only variety but also confusion.
+  If you use different terms for the same thing, you may create more confusion than variety.
 
   \medskip
   \pause
@@ -623,13 +639,14 @@
   \frametitle{These Are All Just Rules of Thumb}
 
   Omitting too many words hurts clarity.
-  Some redundancy can help readers.
 
   \medskip
+  \pause
 
   Passive constructions can direct the reader's focus.
 
   \medskip
+  \pause
 
   Excessive repetition sounds strange.
 \end{frame}
@@ -637,9 +654,15 @@
 \section{Formatting}
 
 \begin{frame}
+  \frametitle{Formatting}
+
+  See slides by David Sabel (translated by Luca Maio) in the course repository.
+\end{frame}
+
+\begin{frame}
   \frametitle{Use \LaTeX}
 
-  \begin{itemize}
+  \begin{itemize}[<+->]
     \item takes care of mundane formatting (references, figures, code highlighting, \dots)
     \item looks good out of the box
     \item best-in-class mathematical typesetting
@@ -651,6 +674,7 @@
   \end{itemize}
 
   \medskip
+  \pause
 
   TCS provides a \href{https://www.tcs.ifi.lmu.de/lehre/bsc-master-arbeiten_de.html}{template for BSc and MSc theses} which you can adapt.
 \end{frame}
@@ -666,6 +690,7 @@
   Different style guides disagree on what exactly is a minor word.
 
   \medskip
+  \pause
 
   Use \url{titlecaseconverter.com}.
 \end{frame}
@@ -676,14 +701,9 @@
   Do not convey information exclusively through colour.
 
   \medskip
+  \pause
 
   Write useful captions for graphical elements.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Fonts, Margins, Citations, Etc.}
-
-  See slides by David Sabel (translated by Luca Maio) in the course repository.
 \end{frame}
 
 \section{Academic Integrity}
@@ -704,6 +724,7 @@
   Cite every paper/document that introduces an idea which is not common knowledge and which is used in your work.
 
   \medskip
+  \pause
 
   Do not cite papers just to pad your bibliography.
   The bibliography of a summary may well have only one entry.
@@ -715,10 +736,12 @@
   Always cite the source.
 
   \medskip
+  \pause
 
   For direct (word-for-word) quotes: use \enquote{quotation marks} or typeset them as block quotes.
 
   \medskip
+  \pause
 
   For indirect (paraphrased) quotes:
   \begin{itemize}
@@ -734,10 +757,12 @@
   You may let other people edit your drafts.
 
   \medskip
+  \pause
 
   You may not let other people write parts of your text.
 
   \medskip
+  \pause
 
   Editors should be acknowledged.
 \end{frame}
@@ -745,12 +770,18 @@
 \begin{frame}
   \frametitle{AI Tools (ChatGPT)}
 
-  \begin{itemize}
-    \item are allowed, but text must remain substantially yours
-    \item must describe how they were used in an acknowledgement
-    \item may be useful for first draft and to improve language
-    \item are prone to factual errors, imprecision, waffling
-  \end{itemize}
+  Generative AI tools are allowed, but the text must remain substantially yours.
+
+  \medskip
+  \pause
+
+  You must describe how you used AI tools in an acknowledgement.
+
+  \medskip
+  \pause
+
+  AI tools may be useful for drafting and to improve your English.
+  But beware of factual errors, imprecision and waffling.
 \end{frame}
 
 \section{Additional Resources}
@@ -759,17 +790,17 @@
   \frametitle{Additional Resources}
 
   \begin{itemize}
-    \item Benjamin Pierce and Rajeev Alur, \href{https://docs.google.com/document/d/1_vBXbugoLjO171w3wovs3ugmRQI-O6EcSVFDBF7eUzE/edit}{Writing and Speaking with Style}
+    \item \good{Benjamin Pierce and Rajeev Alur, \href{https://docs.google.com/document/d/1_vBXbugoLjO171w3wovs3ugmRQI-O6EcSVFDBF7eUzE/edit}{Writing and Speaking with Style}}
 
           Lecture notes for a writing course for computer scientists.
           Covers many of the themes I've discussed in more detail.
           Nice exercises.
-    \item Steven Pinker, The Sense of Style
+    \item \good{Steven Pinker, The Sense of Style}
 
           Book about nonfiction writing.
           Pierce and Alur's slides are partly based on this book, as are mine.
 
-    \item Joseph M.\ Williams and Joseph Bizup, Style: Lessons in Clarity and Grace
+    \item \good{Joseph M.\ Williams and Joseph Bizup, Style: Lessons in Clarity and Grace}
 
           Another book about nonfiction writing.
           Recommended by Pierce and Alur for its exercises.
